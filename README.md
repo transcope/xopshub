@@ -1,5 +1,5 @@
 # xops工作空间
-这里有公开的xops资料，包括调试完成的算例和数据集、相关的文献和资料等。
+这里有公开的xops资料，包括调试完成的算例和数据集、阅读过的相关文献和资料。
 
 ## 模型集
 这里添加算例。
@@ -7,8 +7,14 @@
 ## 数据集
 这里添加数据集。
 
-## 好资料
+## 重要资料
 这里添加相关文献和资料。
+
+### 综合
+* awesome系列
+收集了大量高质量资料，包括最新的研究论文、数据集、工具包、领域知识和相关公司等。包括
+    * aswsome-AIOps: <https://github.com/OpsPAI/awesome-AIOps>
+    * AIOps 手册: <https://github.com/chenryn/aiops-handbook>
 
 ### 算法
 * [调用链根因定位算法综述](https://dreamhomes.top/posts/202204281516/)
