@@ -11,10 +11,11 @@
 这里添加相关文献和资料。
 
 ### 综合
-* awesome系列
-收集了大量高质量资料，包括最新的研究论文、数据集、工具包、领域知识和相关公司等。包括
-    * aswsome-AIOps: <https://github.com/OpsPAI/awesome-AIOps>
-    * AIOps 手册: <https://github.com/chenryn/aiops-handbook>
+* awesome系列收集了大量高质量资料，包括论文、数据集、工具包、领域知识和公司等。
+
+  * aswsome-AIOps: <https://github.com/OpsPAI/awesome-AIOps>
+
+  *	 AIOps 手册: <https://github.com/chenryn/aiops-handbook>
 
 ### 算法
 * [调用链根因定位算法综述](https://dreamhomes.top/posts/202204281516/)
