@@ -18,6 +18,10 @@
  	* AIOps 手册: <https://github.com/chenryn/aiops-handbook>
 
 ### 算法
+* [清华裴丹: AIOps落地的15条原则](https://bizseer.com/index.php?m=content&c=index&a=show&catid=26&id=63)
+
+裴老师总结了模型落地相关经验，包括数据、人工智能、算法路线、数据质量、以及标准化。
+
 * [调用链根因定位算法综述](https://dreamhomes.top/posts/202204281516/)
 
 这篇博文总结十几篇调用链定位论文（最新研究论文汇总参见 <https://github.com/dreamhomes/RCAPapers>）。其中，Rank相关算法对数据要求较低，且没有系统结构要求。该类算法适合冷启动，适用于客户现场，尤其适合没有历史定位数据、没有图谱经验的客户。此外，该博客有提供算法的详细介绍（写作一般，启蒙较好）。
@@ -45,4 +49,3 @@
 		* [智能运维的四大挑战和应对之道（十二）](https://zhuanlan.zhihu.com/p/228201211)
 		* [面向智能化运维的CMDB系统构建（十三）](https://zhuanlan.zhihu.com/p/250155094)
 		* [人与技术相结合的异常管理实践（十四）](https://zhuanlan.zhihu.com/p/260758775)
-	* [AIOps是如何在腾讯IEG体系化推进和普及的](https://zhuanlan.zhihu.com/p/435229129)：这篇文章没啥干货，作者应该没有亲身经历过这一过程。重点是开头的人才建设，强调运维经验权重高于AI能力，需要从运维工程师中培养运维AI工程师，运维团队和AI团队的供需关系，智能化发展会遇到瓶颈，运维AI工程师主要职责在于场景拓展（可能作为商机）。

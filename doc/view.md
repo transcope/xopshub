@@ -8,3 +8,7 @@
 <p align="center">
   <img src="../image/aiops-top-view.png" width="600"/>
 </p>
+
+* [AIOps是如何在腾讯IEG体系化推进和普及的](https://zhuanlan.zhihu.com/p/435229129)
+
+这篇重点是开头的人才建设，强调运维经验权重高于AI能力，需要从运维工程师中培养运维AI工程师，运维团队和AI团队的供需关系，智能化发展会遇到瓶颈，运维AI工程师主要职责在于场景拓展（可能作为商机）。其它方面，没啥干货（话术可以参考）。
