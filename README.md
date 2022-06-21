@@ -5,7 +5,9 @@
 这里添加算例。
 
 ## 数据集
-这里添加数据集。
+* KPI异常检测数据集
+
+这是2018AIOps挑战赛决赛数据集（[下载地址](https://github.com/NetManAIOps/KPI-Anomaly-Detection/tree/master/Finals_dataset)），比赛详情可参见[KPI异常检测](https://competition.aiops-challenge.com/home/competition/1484452272200032281)，数据集详细介绍可参见[KPI数据集介绍](https://github.com/transcope/xopshub/data/README.md)。
 
 ## 重要资料
 这里添加相关文献和资料。
