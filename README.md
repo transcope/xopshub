@@ -2,7 +2,9 @@
 这里有公开的xops资料，包括调试完成的算例和数据集、阅读过的相关文献和资料。
 
 ## 模型集
-这里添加算例。
+* SR异常检测算法
+
+SR（Spectral Residual）算法是一种适用于单维时间序列的无监督异常检测算法，也是2018AIOps挑战赛冠军方案的基础算法，具体可参见[SR异常检测算法](https://github.com/transcope/xopshub/tree/main/example/sr/README.md)。
 
 ## 数据集
 * KPI异常检测数据集
