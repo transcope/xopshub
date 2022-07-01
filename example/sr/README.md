@@ -58,10 +58,30 @@ pip install -r requirements.txt
     ```
 
 ## 运行算例
-* 在KPI数据集上运行SR算法：
+* 在已有数据集上运行SR算法：
 
 ```
-python main.py --dataset KPI
+python main.py --dataset dataset_name --datadir data_dir --logdir log_dir --method eval_method --save
+```
+
+使用方法：main.py [-h] [--dataset DATASET] [--datadir DATADIR] [--logdir LOGDIR] [--method METHOD] [--save]
+
+`-h` 打印帮助信息并退出
+
+`--dataset` 数据集名称，默认为KPI
+
+`--datadir` 数据集所在目录名称，默认为data
+
+`--logdir` 结果日志文件保存目录名称，默认为log
+
+`--method` 评测方法参数，默认为0
+
+`--save` 保存模型预测结果
+
+例如，全部采用默认值运行：
+
+```
+python main.py
 ```
 
 * [不同评测方案](https://github.com/transcope/xopshub/tree/main/example/README.md)的运行方法：
@@ -69,19 +89,19 @@ python main.py --dataset KPI
     * 评测方案1
 
     ```
-    python main.py --dataset KPI --method -1
+    python main.py --method -1
     ```
 
     * 评测方案2
 
     ```
-    python main.py --dataset KPI --method 0
+    python main.py --method 0
     ```
 
     * 评测方案3
 
     ```
-    python main.py --dataset KPI --method 7
+    python main.py --method 7
     ```
 
 * 模型参数可在 `msanomalydetector/util.py` 中设置。
@@ -89,18 +109,18 @@ python main.py --dataset KPI
 ## 算例结果
 * 评测方案1
 
-|dataset|$\bar{P}$|$\bar{R}$|$\bar{F1}$|$P^*$|$R^*$|$F1^*$|
+|dataset|$\bar{P}$|$\bar{R}$|$\bar{F1}$|$P^{* }$|$R^{* }$|$F1^{* }$|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |KPI|0.2124|0.2463|0.2281|0.0527|0.3887|0.0928|
 
 * 评测方案2
 
-|dataset|$\bar{P}$|$\bar{R}$|$\bar{F1}$|$P^*$|$R^*$|$F1^*$|
+|dataset|$\bar{P}$|$\bar{R}$|$\bar{F1}$|$P^{* }$|$R^{* }$|$F1^{* }$|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |KPI|0.7006|0.8354|0.7621|0.7264|0.8414|0.7797|
 
 * 评测方案3
 
-|dataset|$\bar{P}$|$\bar{R}$|$\bar{F1}$|$P^*$|$R^*$|$F1^*$|
+|dataset|$\bar{P}$|$\bar{R}$|$\bar{F1}$|$P^{* }$|$R^{* }$|$F1^{* }$|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |KPI|0.6409|0.7034|0.6707|0.6081|0.6354|0.6214|
