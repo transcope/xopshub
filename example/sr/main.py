@@ -91,5 +91,5 @@ if __name__ == "__main__":
         save_dir = os.path.join(project_dir, "visualization/result")
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)
-        with open(os.path.join(save_dir, "sr_predicton_{}.pkl".format(args.dataset)), "wb") as f:
+        with open(os.path.join(save_dir, "sr_prediction_{}.pkl".format(args.dataset)), "wb") as f:
             pickle.dump(prediction, f)
