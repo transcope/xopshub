@@ -6,6 +6,10 @@
 
 SR（Spectral Residual）算法是一种适用于单维时间序列的无监督异常检测算法，也是2018AIOps挑战赛冠军方案的基础算法，具体可参见[SR异常检测算法](https://github.com/transcope/xopshub/tree/main/example/sr/README.md)。
 
+* Opprentice异常检测算法
+
+Opprentice是一种适用于单维时间序列的有监督异常检测方法，也是一套利用机器学习进行异常监控的系统，具体可参见[Opprentice异常检测算法](https://github.com/transcope/xopshub/tree/main/example/opprentice/README.md)。
+
 ## 数据集
 * KPI异常检测数据集
 
