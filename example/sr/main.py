@@ -72,7 +72,7 @@ if __name__ == "__main__":
     # 异常检测
     for name, (train_df, train_label), (test_df, test_label) in dataset:
         # 预处理
-        pre = Preprocessor(test_df, test_label)
+        pre = Preprocessor(test_df, test_label, fillna="prediction")
         test_df, test_label, test_missing = pre.process()
         # SR模型
         df = detect_anomaly(test_df, THRESHOLD, MAG_WINDOW, SCORE_WINDOW, 99, DetectMode.anomaly_only)

@@ -164,9 +164,9 @@ if __name__ == "__main__":
     for name, (train_df, train_label), (test_df, test_label) in dataset:
         logger.info("read metric {} data".format(name))
         # 预处理
-        train_pre = Preprocessor(train_df, train_label, fillna=False)
+        train_pre = Preprocessor(train_df, train_label, fillna=None)
         train_df, train_label, train_missing = train_pre.process()
-        test_pre = Preprocessor(test_df, test_label, fillna=False)
+        test_pre = Preprocessor(test_df, test_label, fillna=None)
         test_df, test_label, test_missing = test_pre.process()
         logger.info("preprocessing completed")
         # 计算特征
@@ -174,12 +174,13 @@ if __name__ == "__main__":
         fe = FeatureExtractor(tstype=ts_type[time_interval])
         train_X, train_Y, test_X, test_Y = fe.get_features(train_df, train_label, test_df, test_label)
         logger.info("extracting feature successfully, train size: {}, train label: {}, test_size: {}, test label: {}".format(train_X.shape, train_Y.shape, test_X.shape, test_Y.shape))
+        # np.savez_compressed(os.path.join(project_dir, "result", "{}.npz".format(name)), train_X=train_X, train_Y=train_Y, test_X=test_X, test_Y=test_Y)
         # 机器学习模型
         model = RandomForestClassifier(n_estimators=100, random_state=42)
         num = train_df.shape[0] - train_X.shape[0]
-        is_train = train_missing[num:]==0
-        model.fit(train_X[is_train], train_Y[is_train])
-        score = model.predict_proba(test_X)[:,1]
+        non_missing = train_missing[num:]==0
+        model.fit(train_X[non_missing], train_Y[non_missing])
+        score = model.predict_proba(test_X)[:, 1]
         logger.info("model training, score size: {}".format(score.shape))
         prediction[name] = score
         # 模型评测
