@@ -10,6 +10,10 @@ SR（Spectral Residual）算法是一种适用于单维时间序列的无监督�
 
 Opprentice是一种适用于单维时间序列的有监督异常检测方法，也是一套利用机器学习进行异常监控的系统，具体可参见[Opprentice异常检测算法](https://github.com/transcope/xopshub/tree/main/example/opprentice/README.md)。
 
+* PUAD异常检测算法
+
+PUAD是一种适用于大量单维时间序列的半监督异常检测方法，基于正样本无标签学习（PU learning）和少量标签信息进行异常检测，具体可参见[PUAD异常检测算法](https://github.com/transcope/xopshub/tree/main/example/puad/README.md)。
+
 ## 数据集
 * KPI异常检测数据集
 
