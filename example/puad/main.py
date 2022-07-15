@@ -200,7 +200,7 @@ if __name__ == "__main__":
     prediction = {}
     # KPI聚类
     if args.cluster:
-        clustering_df = run_rocka(datadir=args.datadir, dataset=args.dataset, minPts=3)
+        clustering_df = run_rocka(datadir=args.datadir, dataset=args.dataset, minPts=4)
         clustering_df.to_csv(os.path.join(project_dir, "example/puad", "rocka.csv"), index=False)
     else:
         clustering_df = pd.read_csv(os.path.join(project_dir, "example/puad", "rocka.csv"))
