@@ -14,6 +14,10 @@ Opprentice是一种适用于单维时间序列的有监督异常检测方法，�
 
 PUAD是一种适用于大量单维时间序列的半监督异常检测方法，基于正样本无标签学习（PU learning）和少量标签信息进行异常检测，具体可参见[PUAD异常检测算法](https://github.com/transcope/xopshub/tree/main/example/puad/README.md)。
 
+* 集成类异常检测算法
+
+集成类异常检测算法是一种适用于单维时间序列的无监督异常检测方法，通过多种算法投票进行异常检测，具体可参见[集成类异常检测算法](https://github.com/transcope/xopshub/tree/main/example/ensemble/README.md)。
+
 ## 数据集
 * KPI异常检测数据集
 
