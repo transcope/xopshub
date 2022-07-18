@@ -23,3 +23,11 @@
 1. 在`example/utils.py`中增加插值填充、平滑异常点和基线提取的数据预处理功能；
 
 2. 在`example/puad/`中加入puad算例；
+
+## 2022-07-15
+
+1. 在`example/puad/`下修改puad算例参数，并更新算例结果；
+
+2. 在`visualization/cluster.ipynb`中加入可视化聚类结果；
+
+3. 在`example/ensemble/`中加入集成算例；
