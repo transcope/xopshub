@@ -21,7 +21,17 @@ PUAD是一种适用于大量单维时间序列的半监督异常检测方法，�
 ## 数据集
 * KPI异常检测数据集
 
-这是2018AIOps挑战赛决赛数据集（[下载地址](https://github.com/NetManAIOps/KPI-Anomaly-Detection/tree/master/Finals_dataset)），比赛详情可参见[KPI异常检测](https://competition.aiops-challenge.com/home/competition/1484452272200032281)，数据集详细介绍可参见[KPI数据集介绍](https://github.com/transcope/xopshub/tree/main/data/README.md)。
+这是2018AIOps挑战赛决赛数据集（[下载地址](https://github.com/NetManAIOps/KPI-Anomaly-Detection/tree/master/Finals_dataset)），比赛详情可参见[KPI异常检测](https://competition.aiops-challenge.com/home/competition/1484452272200032281)。该数据集包含训练集和测试集，适用于有监督、无监督、半监督等所有种类算法。
+
+* Yahoo异常检测数据集
+
+这是Yahoo Labs提供的时间序列异常检测的benchmark数据集（[下载地址](https://yahooresearch.tumblr.com/post/114590420346/a-benchmark-dataset-for-time-series-anomaly)）。该数据集只包含测试集，适用于无监督算法。
+
+* AWS异常检测数据集
+
+这是Numenta Anomaly Benchmark (NAB)中的AWS监控指标数据集（[下载地址](https://github.com/numenta/NAB/tree/master/data/realAWSCloudwatch)）。该数据集只包含测试集，适用于无监督算法。
+
+以上数据集详细介绍均可参见[异常检测数据集详细介绍](https://github.com/transcope/xopshub/tree/main/data/README.md)。
 
 ## 重要资料
 这里添加相关文献和资料。
