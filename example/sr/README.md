@@ -61,10 +61,10 @@ pip install -r requirements.txt
 * 在已有数据集上运行SR算法：
 
 ```
-python main.py --dataset dataset_name --datadir data_dir --logdir log_dir --method eval_method --save
+python main.py --dataset dataset_name --datadir data_dir --logdir log_dir --method eval_method --save --magwindow mag_window --scorewindow score_window --slidingwindow sliding_window
 ```
 
-使用方法：main.py [-h] [--dataset DATASET] [--datadir DATADIR] [--logdir LOGDIR] [--method METHOD] [--save]
+使用方法：main.py [-h] [--dataset DATASET] [--datadir DATADIR] [--logdir LOGDIR] [--method METHOD] [--save] [--magwindow MAGWINDOW] [--scorewindow SCOREWINDOW] [--slidingwindow SLIDINGWINDOW]
 
 `-h` 打印帮助信息并退出
 
@@ -77,6 +77,12 @@ python main.py --dataset dataset_name --datadir data_dir --logdir log_dir --meth
 `--method` 评测方法参数，默认为0
 
 `--save` 保存模型预测结果
+
+`--magwindow` 模型参数，计算SR的均值滤波窗口，默认为3
+
+`--scorewindow` 模型参数，计算显著图异常分数的均值滤波窗口，默认为40
+
+`--slidingwindow` 模型参数，模型输入傅里叶变换的滑动时间窗口，默认为1440
 
 例如，全部采用默认值运行：
 
@@ -100,27 +106,56 @@ python main.py
 
     * 评测方案3
 
+    KPI、AWS：
     ```
-    python main.py --method 7
+    python main.py --dataset KPI --method 7
+    ```
+    Yahoo：
+    ```
+    python main.py --dataset Yahoo --method 3
     ```
 
-* 模型参数可在 `msanomalydetector/util.py` 中设置。
+* 不同数据集的参数设置：
+
+    * KPI
+
+    ```
+    python main.py
+    ```
+
+    * Yahoo
+
+    ```
+    python main.py --dataset Yahoo --slidingwindow 64
+    ```
+
+    * AWS
+
+    ```
+    python main.py --dataset AWS --slidingwindow 288
+    ```
 
 ## 算例结果
 * 评测方案1
 
 |dataset|$\bar{P}$|$\bar{R}$|$\bar{F1}$|$P^{* }$|$R^{* }$|$F1^{* }$|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|KPI|0.2124|0.2463|0.2281|0.0527|0.3887|0.0928|
+|KPI|0.3106|0.1615|0.2125|0.0839|0.1922|0.1169|
+|Yahoo|0.5105|0.4420|0.4738|0.1284|0.5411|0.2075|
+|AWS|0.1207|0.7571|0.2082|0.1142|0.7384|0.1977|
 
 * 评测方案2
 
 |dataset|$\bar{P}$|$\bar{R}$|$\bar{F1}$|$P^{* }$|$R^{* }$|$F1^{* }$|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|KPI|0.7006|0.8354|0.7621|0.7264|0.8414|0.7797|
+|KPI|0.7630|0.7861|0.7744|0.7924|0.8536|0.8218|
+|Yahoo|0.7833|0.8642|0.8217|0.7219|0.9213|0.8095|
+|AWS|0.9518|1.0000|0.9753|0.9454|1.0000|0.9719|
 
 * 评测方案3
 
 |dataset|$\bar{P}$|$\bar{R}$|$\bar{F1}$|$P^{* }$|$R^{* }$|$F1^{* }$|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|KPI|0.6409|0.7034|0.6707|0.6081|0.6354|0.6214|
+|KPI|0.7529|0.6680|0.7079|0.7813|0.6768|0.7253|
+|Yahoo|0.7358|0.8590|0.7927|0.3848|0.9141|0.5416|
+|AWS|0.5240|0.8750|0.6555|0.5289|0.8563|0.6539|

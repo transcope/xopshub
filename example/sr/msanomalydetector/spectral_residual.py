@@ -55,18 +55,31 @@ class SpectralResidual:
 
         return self.__anomaly_frame
 
+    # def __detect(self):
+    #     anomaly_frames = []
+    #     for i in range(0, len(self.__series__), self.__batch_size):
+    #         start = i
+    #         end = i + self.__batch_size
+    #         end = min(end, len(self.__series__))
+    #         if end - start >= 12:
+    #             anomaly_frames.append(self.__detect_core(self.__series__[start:end]))
+    #         else:
+    #             ext_start = max(0, end - self.__batch_size)
+    #             ext_frame = self.__detect_core(self.__series__[ext_start:end])
+    #             anomaly_frames.append(ext_frame[start-ext_start:])
+
+    #     return pd.concat(anomaly_frames, axis=0, ignore_index=True)
+
+    # fix the bug of using future series
     def __detect(self):
         anomaly_frames = []
-        for i in range(0, len(self.__series__), self.__batch_size):
+        for i in range(0, len(self.__series__)):
             start = i
             end = i + self.__batch_size
-            end = min(end, len(self.__series__))
-            if end - start >= 12:
-                anomaly_frames.append(self.__detect_core(self.__series__[start:end]))
+            if end > len(self.__series__):
+                break
             else:
-                ext_start = max(0, end - self.__batch_size)
-                ext_frame = self.__detect_core(self.__series__[ext_start:end])
-                anomaly_frames.append(ext_frame[start-ext_start:])
+                anomaly_frames.append(self.__detect_core(self.__series__[start:end]).tail(1))
 
         return pd.concat(anomaly_frames, axis=0, ignore_index=True)
 
