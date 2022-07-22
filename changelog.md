@@ -31,3 +31,13 @@
 2. 在`visualization/cluster.ipynb`中加入可视化聚类结果；
 
 3. 在`example/ensemble/`中加入集成算例；
+
+## 2022-07-22
+
+1. 在`data/`下加入Yahoo数据集信息和AWS数据集；
+
+2. 在`example/utils.py`中增加新数据集读取和信息统计功能；
+
+3. 在`example/sr/`中修正模型预测方法，并增加输入模型参数；
+
+4. 在`example/sr/`中更新实验结果；
