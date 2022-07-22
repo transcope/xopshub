@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import logging
 import time
+import json
 
 
 class ADdataset:
@@ -18,7 +19,7 @@ class ADdataset:
     def __init__(self, root, dataset):
         self.root = root
         self.dataset = dataset
-        if dataset not in ["SMD", "KPI", "ASD"]:
+        if dataset not in ["KPI", "Yahoo", "AWS"]:
             raise ValueError("dataset {} is not available".format(dataset))
 
     def __iter__(self):
@@ -26,7 +27,7 @@ class ADdataset:
         Returns
         -------
         str: kpi type.
-        (DataFrame, DataFrame): training data with columns [`timestamp`, `value`] and labels with column `label`.
+        (DataFrame, DataFrame) or (None, None): training data with columns [`timestamp`, `value`] and labels with column `label`.
         (DataFrame, DataFrame): test data with columns [`timestamp`, `value`] and labels with column `label`.
         """
         if self.dataset == "KPI":
@@ -44,7 +45,48 @@ class ADdataset:
                 test_data = all_test_df[all_test_df["KPI ID"] == kpi].sort_values(by=["timestamp"], ascending=True).reset_index(drop=True)
                 test_df = test_data[["timestamp", "value"]]
                 test_label = test_data[["label"]]
+                if test_label["label"].sum() == 0:
+                    continue
                 yield str(kpi), (train_df, train_label), (test_df, test_label)
+        elif self.dataset == "Yahoo":
+            data_dir = os.path.join(self.root, "Yahoo")
+            # groups = ["A1Benchmark", "A2Benchmark", "A3Benchmark", "A4Benchmark"]
+            groups = ["A1Benchmark"]
+            for group in groups:
+                tmp_dir = os.path.join(data_dir, group)
+                files = sorted(os.listdir(tmp_dir))
+                for file in files:
+                    if "json" in file or "all" in file:
+                        continue
+                    df = pd.read_csv(os.path.join(tmp_dir, file))
+                    if df.shape[1] == 3:
+                        test_df = df[["timestamp", "value"]]
+                        test_label = df[["is_anomaly"]].rename(columns={"is_anomaly": "label"})
+                    else:
+                        test_df = df[["timestamps", "value"]].rename(columns={"timestamps": "timestamp"})
+                        test_label = df[["anomaly"]].rename(columns={"anomaly": "label"})
+                    if test_label["label"].sum() == 0:
+                        continue
+                    yield file.split(".")[0], (None, None), (test_df, test_label)
+        elif self.dataset == "AWS":
+            data_dir = os.path.join(self.root, "AWS")
+            label1 = json.load(open(os.path.join(data_dir, "combined_labels.json"), "r"))
+            label2 = json.load(open(os.path.join(data_dir, "combined_windows.json"), "r"))
+            filelist = [file for file in os.listdir(data_dir) if file.endswith("csv")]
+            for file in filelist:
+                df = pd.read_csv(os.path.join(data_dir, file))
+                df["label"] = 0
+                for ts1 in label1[file]:
+                    if df[df["timestamp"]==ts1].shape[0] > 0:
+                        df.loc[df["timestamp"]==ts1, "label"] = 1
+                df["timestamp"] = df["timestamp"].apply(str_to_ts)
+                for t1, t2 in label2[file]:
+                    df.loc[(df["timestamp"]>=str_to_ts(t1)) & (df["timestamp"]<=str_to_ts(t2)), "label"] = 1
+                test_df = df[["timestamp", "value"]]
+                test_label = df[["label"]]
+                if test_label["label"].sum() == 0:
+                    continue
+                yield file.split(".")[0], (None, None), (test_df, test_label)
         
 
 class Preprocessor:
@@ -272,6 +314,54 @@ def normalize_kpi(values, mean=None, std=None, excludes=None):
 
     return (values - mean) / std, mean, std
 
+def statistics(dataset):
+    """
+    print the statistics info of given dataset.
+
+    Params
+    ------
+    dataset: ADdataset, given time series dataset.
+    """
+    all_num = [0, 0]
+    anomalies = [0, 0]
+    missing_num = [0, 0]
+    num = [0, 0]
+    for name, (train_df, train_label), (test_df, test_label) in dataset:
+        logger.info("kpi {} data".format(name))
+        if train_df is not None:
+            train_pre = Preprocessor(train_df, train_label)
+            all_train_df, all_train_label, train_missing = train_pre.process()
+            logger.info("train dataset, data: {}, missing rate: {:.4f}, anomaly rate: {:.4f}".format(all_train_df.shape[0], float(train_missing.sum())/all_train_df.shape[0], float(train_label.label.sum())/all_train_df.shape[0]))
+            all_num[0] += all_train_df.shape[0]
+            anomalies[0] += train_label.label.sum()
+            missing_num[0] += train_missing.sum()
+            num[0] += 1
+
+        test_pre = Preprocessor(test_df, test_label)
+        all_test_df, all_test_label, test_missing = test_pre.process()
+        logger.info("test dataset, data: {}, missing rate: {:.4f}, anomaly rate: {:.4f}".format(all_test_df.shape[0], float(test_missing.sum())/all_test_df.shape[0], float(test_label.label.sum())/all_test_df.shape[0]))
+        all_num[1] += all_test_df.shape[0]        
+        anomalies[1] += test_label.label.sum()
+        missing_num[1] += test_missing.sum()
+        num[1] += 1
+
+    logger.info("all {} data".format(dataset.dataset))
+    logger.info("train dataset, type: {}, data: {}, missing rate: {:.4f}, anomaly rate: {:.4f}".format(num[0], all_num[0], float(missing_num[0])/(all_num[0]+1e-6), float(anomalies[0])/(all_num[0]+1e-6)))
+    logger.info("test dataset, type: {}, data: {}, missing rate: {:.4f}, anomaly rate: {:.4f}".format(num[1], all_num[1], float(missing_num[1])/(all_num[1]+1e-6), float(anomalies[1])/(all_num[1]+1e-6)))
+
+def str_to_ts(x):
+    """
+    convert timestr to timestamp.
+
+    Params
+    ------
+    x: str, time string with format `%Y-%m-%d %H:%M:%S`.
+
+    Returns
+    -------
+    int: timestamp.
+    """
+    return int(time.mktime(time.strptime(x, "%Y-%m-%d %H:%M:%S")))
 
 def get_logger(logging_path, logging_name, logging_level=logging.INFO):
     """
@@ -283,3 +373,14 @@ def get_logger(logging_path, logging_name, logging_level=logging.INFO):
     logger = logging.getLogger(logging_name)
     logging.basicConfig(filename=logging_file, level=logging_level, format="[%(asctime)s][%(levelname)s][%(funcName)s] %(message)s", datefmt="%Y/%m/%d %H:%M:%S")
     return logger
+
+if __name__ == "__main__":
+    dataset_name = "AWS"
+    # 建立日志
+    project_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+    logging_dir = os.path.join(project_dir, "log")
+    logger = get_logger(logging_path=logging_dir, logging_name="utsad_dataset_{}".format(dataset_name))
+    # 读取数据集
+    data_dir = os.path.join(project_dir, "data")
+    dataset = ADdataset(root=data_dir, dataset=dataset_name)
+    statistics(dataset)
