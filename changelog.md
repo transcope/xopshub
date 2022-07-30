@@ -41,3 +41,9 @@
 3. 在`example/sr/`中修正模型预测方法，并增加输入模型参数；
 
 4. 在`example/sr/`中更新实验结果；
+
+## 2022-07-29
+
+1. 在`example/ensemble/main.py`中修改代码适应不同数据集；
+
+2. 在`example/ensemble/`中更新实验结果；
