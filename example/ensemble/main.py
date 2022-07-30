@@ -31,8 +31,12 @@ def ensemble_trainer(train_df, test_df, freq="D", voting_num=3):
     -------
     1-D ndarray: prediction.
     """
-    df = pd.concat([train_df, test_df], axis=0).reset_index(drop=True)
-    df["test"] = np.concatenate([np.zeros(train_df.shape[0]), np.ones(test_df.shape[0])])
+    if train_df is None:
+        df = test_df.copy()
+        df["test"] = 1
+    else:
+        df = pd.concat([train_df, test_df], axis=0).reset_index(drop=True)
+        df["test"] = np.concatenate([np.zeros(train_df.shape[0]), np.ones(test_df.shape[0])])
     df["timestamp"] = df["timestamp"].apply(lambda x: time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(x)))
     # 去重
     if df["timestamp"].unique().shape[0] != df.shape[0]:
@@ -49,7 +53,10 @@ def ensemble_trainer(train_df, test_df, freq="D", voting_num=3):
     for ts in test_indexes:
         history_data = df[(df.index >= ts + datetime.timedelta(hours=7*int(-24))) & (df.index < ts)]["value"]
         check_value = df[df.index == ts]["value"].values[0]
-        preds = voting(history_data, check_value, freq, voting_num)
+        if len(history_data) < 24:
+            preds = "no alarm"
+        else:
+            preds = voting(history_data, check_value, freq, voting_num)
         if preds == "no alarm":
             test_preds.append(0)
         else:
@@ -89,7 +96,10 @@ def voting(data, check_value, freq, voting_num):
     for i in check_result_list:
         # print("model: %s" %i)
         # print("check result:%s, percent:%f" %(check_result_list[i][0], check_result_list[i][1]))
-        result_type_list.append(check_result_list[i][0])
+        if check_result_list[i]:
+            result_type_list.append(check_result_list[i][0])
+        else:
+            result_type_list.append(check_result_list[i])
 
     if result_type_list.count("uprush") >= voting_num:
         return "uprush"
@@ -104,7 +114,7 @@ def parse_args():
     """
     import argparse
     parser = argparse.ArgumentParser(description="Ensemble anomaly detection")
-    parser.add_argument("--dataset", type=str, default="KPI", choices=["KPI"], help="dataset name")
+    parser.add_argument("--dataset", type=str, default="KPI", choices=["KPI", "Yahoo", "AWS"], help="dataset name")
     parser.add_argument("--datadir", type=str, default="data", help="data dirname")
     parser.add_argument("--logdir", type=str, default="log", help="log dirname")
     parser.add_argument("--method", type=int, default=0, help="evaluation method")
@@ -115,7 +125,7 @@ def parse_args():
         args = parser.parse_args()
     except:
         print("help message, or you can use `main.py -h` for more details")
-        print("--dataset dataset_name, it should be in [KPI] and default value is KPI")
+        print("--dataset dataset_name, it should be in [KPI, Yahoo, AWS] and default value is KPI")
         print("--datadir data_dirname, default value is data")
         print("--logdir log_dirname, default value is log")
         print("--method evaluation_method, it should be an interger no less than -1 and default value is 0")
@@ -135,12 +145,15 @@ if __name__ == "__main__":
     # 记录结果
     res = ReSummary()
     prediction = {}
+    # with open(os.path.join(project_dir, "visualization/result", "ensemble_prediction_{}.pkl".format(args.dataset)), "rb") as f:
+    #     prediction = pickle.load(f)
     # 异常检测
     for name, (train_df, train_label), (test_df, test_label) in dataset:
         logger.info("read metric {} data".format(name))
         # 预处理
-        train_pre = Preprocessor(train_df, train_label, fillna=None)
-        train_df, train_label, train_missing = train_pre.process()
+        if train_df is not None:
+            train_pre = Preprocessor(train_df, train_label, fillna=None)
+            train_df, train_label, train_missing = train_pre.process()
         test_pre = Preprocessor(test_df, test_label, fillna=None)
         test_df, test_label, test_missing = test_pre.process()
         logger.info("preprocessing completed")
@@ -149,6 +162,7 @@ if __name__ == "__main__":
         logger.info("model prediction, pred size: {}".format(preds.shape))
         prediction[name] = preds
         # 模型评测
+        # preds = prediction[name]
         evaluator = Evaluator(preds, test_label, test_missing, preds, method=args.method)
         result, best_th = evaluator.evaluate()
         logger.info("metric: {}, precision: {:.4f}, recall: {:.4f}, best-f1: {:.4f}".format(name, result["precision"], result["recall"], result["best-f1"]))
