@@ -77,4 +77,4 @@ PUAD是一种适用于大量单维时间序列的半监督异常检测方法，�
 		* [人与技术相结合的异常管理实践（十四）](https://zhuanlan.zhihu.com/p/260758775)
 	
 ### 其它
-* [报告工作空间](https://github.com/transcope/xopshub/blob/main/doc/view.md)：收集具有一定参考价值的资料，包括框架、思路、以及不同环节的落地经验等。
+* [报告工作空间](https://github.com/transcope/xopshub/blob/main/doc/report.md)：收集具有一定参考价值的资料，包括框架、思路、以及不同环节的落地经验等。
