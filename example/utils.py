@@ -67,6 +67,8 @@ class ADdataset:
                         test_label = df[["anomaly"]].rename(columns={"anomaly": "label"})
                     if test_label["label"].sum() == 0:
                         continue
+                    if test_df["timestamp"].max() < 1e9:
+                        test_df["timestamp"] = test_df["timestamp"]*3600 + 1416726000
                     yield file.split(".")[0], (None, None), (test_df, test_label)
         elif self.dataset == "AWS":
             data_dir = os.path.join(self.root, "AWS")

@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ```
 
 ## 运行算例
-* 在已有数据集上运行SR算法：
+* 在已有数据集上运行集成算法：
 
 ```
 python main.py --dataset dataset_name --datadir data_dir --logdir log_dir --method eval_method --save
@@ -45,7 +45,7 @@ python main.py --dataset dataset_name --datadir data_dir --logdir log_dir --meth
 例如，全部采用默认值运行：
 
 ```
-python main.py --cluster --feature
+python main.py
 ```
 
 * [不同评测方案](https://github.com/transcope/xopshub/tree/main/example/README.md)的运行方法：
@@ -64,6 +64,36 @@ python main.py --cluster --feature
 
     * 评测方案3
 
+    KPI、AWS：
     ```
-    python main.py --method 7
+    python main.py --dataset KPI --method 7
     ```
+    Yahoo：
+    ```
+    python main.py --dataset Yahoo --method 3
+    ```
+
+## 算例结果
+* 评测方案1
+
+|dataset|$\bar{P}$|$\bar{R}$|$\bar{F1}$|$P^{* }$|$R^{* }$|$F1^{* }$|
+|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+|KPI|0.0515|0.3477|0.0896|0.0553|0.2987|0.0934|
+|Yahoo|0.0310|0.7422|0.0595|0.0291|0.6321|0.0556|
+|AWS|0.1295|0.3299|0.1860|0.1194|0.3187|0.1737|
+
+* 评测方案2
+
+|dataset|$\bar{P}$|$\bar{R}$|$\bar{F1}$|$P^{* }$|$R^{* }$|$F1^{* }$|
+|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+|KPI|0.1329|0.9493|0.2331|0.1587|0.9617|0.2724|
+|Yahoo|0.0463|0.9936|0.0885|0.0451|0.9964|0.0863|
+|AWS|0.3144|0.9792|0.4760|0.2939|0.9786|0.4520|
+
+* 评测方案3
+
+|dataset|$\bar{P}$|$\bar{R}$|$\bar{F1}$|$P^{* }$|$R^{* }$|$F1^{* }$|
+|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+|KPI|0.1271|0.9072|0.2229|0.1488|0.8917|0.2551|
+|Yahoo|0.0463|0.9936|0.0885|0.0451|0.9964|0.0863|
+|AWS|0.2463|0.8125|0.3780|0.2497|0.7827|0.3786|
