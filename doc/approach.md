@@ -49,7 +49,7 @@ $$Z = \frac{X-np}{\sqrt{np\left(1-p\right)}}$$
 
 
  <p align="center">
-  <img src="../image/huawei-oeg-conceptual-view.png" width="600"/>
+  <img src="../image/baidu_z-score.png" width="600"/>
 </p>
  
 
