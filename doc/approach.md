@@ -58,11 +58,4 @@
 	* 针对业务和应用的周期变化不同，可以按时间进行划分，分别计算阈值。比如，中午比晚上交易量大，计算负载高，网络链接阈值可以设置不同。比如，每台服务器设置24个阈值，重大节日采用特定阈值。
 
 
-* 参考资料：[二项分布为何能在网络判障中发挥大作用？](https://mp.weixin.qq.com/s?src=11&timestamp=1659960263&ver=3970&signature=ZB4JYkGEIRdseUjXmjdh77z9oCuxWCfi12PbpJi1rWzPWt9gi2eNxHqpO7THdxIlxColdEDnvVb8V81htH2w-mCOJOQXa8PsXGGPlfZzU5eN4QrKnqIO5T1AuR7jzmL7&new=1)
-
-$$
-\begin{aligned}
-Z= \frac{X-\mu}{\sigma}
-&= \frac{X-np}{\sqrt{np\left(1-p\right)}} 
-\end{aligned}
-$$		      
+* 参考资料：[二项分布为何能在网络判障中发挥大作用？](https://mp.weixin.qq.com/s?src=11&timestamp=1659960263&ver=3970&signature=ZB4JYkGEIRdseUjXmjdh77z9oCuxWCfi12PbpJi1rWzPWt9gi2eNxHqpO7THdxIlxColdEDnvVb8V81htH2w-mCOJOQXa8PsXGGPlfZzU5eN4QrKnqIO5T1AuR7jzmL7&new=1)	      
