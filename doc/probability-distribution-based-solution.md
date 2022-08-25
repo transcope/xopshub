@@ -99,6 +99,20 @@
 响应时间是指系统处理请求的时间。这类指标能够反应应用和系统问题。首先，用户可能因为等待时间长转而使用更快的竞品。其次，造成响应慢有多种原因，如网络延迟、IO等待、进程阻塞。
 
 * 正态分布
+	* 通常情况下，可以假设响应时间服从正态分布，即 $$ 𝑥_{t}\sim \mathcal{N}(\mu,\sigma ^{2}) $$
+	* 参数估计
+	
+	$$ \begin{aligned} \mu = \bar{x} = \frac{x_{1}+x_{2}+\dots+x_{n}}{n} \end{aligned} $$
+	
+	$$ \begin{aligned} \sigma = s = \sqrt{\frac{\sum_{i=1}^{n} (x_{i}-\bar{x})^{2}}{n-1}} \end{aligned} $$
+
+	* 计算概率
+
+<p align="center">
+  <img src="../image/normal-distribution-three-sigma.png" width="600"/>
+</p>
+
+
 
 
 
@@ -110,4 +124,4 @@
 
 这部分需要通过实操总结经验。比如，数据聚类剔除极端异常值。
 
-* 参考资料：百度异常检测实践
+* 参考资料：[百度异常检测实践](https://github.com/transcope/xopshub/blob/main/doc/external/%E7%99%BE%E5%BA%A6%E6%99%BA%E8%83%BD%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E5%AE%9E%E8%B7%B5.pdf)
