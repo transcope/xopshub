@@ -84,10 +84,17 @@
 		
 		* 由于计算开销大，这里同样采用正态分布近似泊松分布， 计算 $Z$ 值：
 
-		  $$ \begin{aligned} z=\frac{y_{t}-\hat{y_{t}}}{\sqrt{\hat{y_{t}}}} \end{aligned} $$
+		  $$ \begin{aligned} Z=\frac{y_{t}-\hat{y_{t}}}{\sqrt{\hat{y_{t}}}} \end{aligned} $$
 
 		* 关于如何界定异常（建立统一检测阈值）
-	
+
+<p align="center">
+  <img src="../image/possion_zscore.png" width="600"/>
+</p>
+
+* 补充说明：
+	* 预警难点的用例。如图所示，点 $A$ 表示夜间的实际流量为300，预测值为380；点 $B$ 表示中午实际流量情况为400000，预测流量情况为450000。虽然点 $A$ 预测差异在20%，点 $B$ 预测差异在10%，但 $z_A$ = -8.9 ， $ z_B = -74$ ，$Z_B$ 低于于阈值 -60，说明B为流量异常点，需检测。
+		
 
 * 参考资料：[我们不一样！告诉你百度是如何做智能流量异常检测的](https://cloud.tencent.com/developer/news/291894) 
 
