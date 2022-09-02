@@ -123,13 +123,11 @@
 	* 该算法可以为不同类型的监控指标数据估算何时的概率分布；
 	*  KDE 是一个种非参数化方法，基于随机变量的观测样本估计其概率密度。公式如下，
 	
-	$$ \begin{equation}
+	$$ \begin{aligned} 
 \hat{f}(x)=\frac{1}{n} \sum_{i=1}^n K\left(x ; x_i\right)
-\end{equation}  
-$$
+\end{aligned} $$
 
-	*  其中，$$ K $$ 表示核函数（默认 Gaussian 分布），另一个可配置参数叫作带宽（平滑参数），算法具体参见 [非参数估计：核密度估计KDE
-](https://blog.csdn.net/pipisorry/article/details/53635895) 
+	*  其中，$ K $ 表示核函数（默认 Gaussian 分布），另一个可配置参数叫作带宽（平滑参数），算法具体参见 [非参数估计：核密度估计KDE](https://blog.csdn.net/pipisorry/article/details/53635895) 
 
 * 前处理
 
