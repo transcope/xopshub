@@ -133,4 +133,58 @@
 
 这部分需要通过实操总结经验。比如，数据聚类剔除极端异常值。
 
+## Linux 系统的标准监控指标及经验分布
+<table>
+    <tr>
+        <td>类型</td>
+        <td align="center">监控指标</td>
+	<td align="center">说明</td>
+	<td>经验分布</td>    
+    </tr>
+    <tr>
+        <td rowspan="8">CPU</td>
+	<td>CPU_IDLE</td>	
+	<td>空闲百分比</td>
+	<td rowspan="2">贝塔分布</td> 
+    </tr>
+    <tr>	
+	<td>CPU_HT_IDLE</td>	
+	<td>超线程空闲百分比</td>
+    </tr>
+    <tr>
+	<td>CPU_CONTEXT_SWITCH</td>	
+	<td>上下文切换次数</td>
+	<td>泊松分布</td>
+    </tr>
+    <tr>
+	<td>CPU_INTERRUPT</td>	
+	<td>中断次数</td>
+	<td rowspan="5">高斯分布</td> 	
+    </tr>
+    <tr>
+        <td>CPU_SERVER_LOADAVG_1</td>	
+        <td>1分钟前到现在的负载平均值</td>
+    </tr>
+    <tr>	
+	<td>CPU_SERVER_LOADAVG_5</td>	
+	<td>5分钟前到现在的负载平均值</td>	    
+    </tr>
+    <tr>	 
+	<td>CPU_SERVER_LOADAVG_15</td>	
+	<td>15分钟前到现在的负载平均值</td>   
+    </tr>
+    <tr>
+	<td>CPU_WAIT_IO</td>
+	<td>等待IO占CPU百分比</td>
+    </tr>
+</table>
+效果图:
+
+
+
+作者：0蛐蛐0
+链接：https://www.jianshu.com/p/b6c85800c44e
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
 * 参考资料：[百度异常检测实践](https://github.com/transcope/xopshub/blob/main/doc/external/%E7%99%BE%E5%BA%A6%E6%99%BA%E8%83%BD%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E5%AE%9E%E8%B7%B5.pdf)
