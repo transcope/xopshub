@@ -2,15 +2,15 @@
 如何使用KDE算法（主要是高斯核密度估计）对监控数据进行分析。
 
 ## 算法
-（KDE算法介绍），主要参数包括：
-  * 核密度函数: 这里主要采用高斯核函数。
-  * 带宽: 反映了KDE曲线整体的平坦程度，带宽越大，观察到的数据点在最终形成的曲线形状中所占比重越小，KDE整体曲线就越平坦。
+核密度估计方法，是一种从数据样本本身出发研究数据分布特征的方法，主要参数包括：
+  * 核密度函数：这里主要采用高斯核函数。
+  * 带宽：反映了KDE曲线整体的平坦程度，如：当带宽越大，KDE整体曲线就越平坦，说明观察到的数据点在最终形成的曲线形状中所占比重越小。
 
 ## 数据
 这里使用的是AWS监控指标数据集中的CPU使用率，具体参见 <a href="../data/README.md">数据说明.</a>
 
 ## 实验
-这里包括三组实验，分别是: 1. 有效性分析；2. 参数影响评估；3. 泛化性测试。
+这里包括三组实验，分别是：1. 有效性分析；2. 参数影响评估；3. 泛化性测试。
 
 * 有效性分析
   * 这里采用数据集（ec2_cpu_utilization_24ae8d.csv），该数据集包括两个异常点，分布情况如下图所示；
@@ -34,7 +34,7 @@
 * 参数影响评估
   * 延用上个实验的数据集；
   * 这里KDE的带宽分别采用0.15、0.5、1、2、5、10；
-  * 如下图所示，带宽越小，异常点越明显。
+  * 如下图所示，带宽越小，异常点越明显，也就是在当前数据集中，观察点的数据在曲线形状中占比越大，越容易发现异常。
 
 <p align="center">
   <img src="../image/kde-application/bw_0.15.png" width="600"/>
@@ -63,18 +63,27 @@
 
 
 
-<!-- 可以看出，在这个数据集中，当KDE曲线越陡峭时，也就是相对来说不同的数据集适合的带宽也不相同。
+<!-- 可以看出，在这个数据集中，，也就是相对来说不同的数据集适合的带宽也不相同。
  -->
 
 * 泛化性测试
   * 使用AWS剩下四个数据集进行测试；
   * 不同数据集的KDE带宽参数不同；
   * 如下图所示，可以看到：KDE能够侦测到不同节点上的指标异常。
-
-<!-- <p align="center">
-  <img src="../image/kde-application/Ori2.png" width="600"/>
-  <img src="../image/kde-application/bw2_1.png" width="600"/>
-  <img src="../image/kde-application/Ori3.png" width="600"/>
-  <img src="../image/kde-application/bw3_1.png" width="600"/>
+<p align="center">
+  <img src="../image/kde-application/bw1.png" width="600"/>
+  </br>图3.1：数据集：ec2_cpu_utilization_ac20cd.csv，bw = 0.15
 </p>
- -->
+<p align="center">
+  <img src="../image/kde-application/bw2.png" width="600"/>
+  </br>图3.2：数据集：ec2_cpu_utilization_5f5533.csv，bw = 0.5
+</p>
+<p align="center">
+  <img src="../image/kde-application/bw3.png" width="600"/>
+  </br>图3.3：数据集：ec2_cpu_utilization_825cc2.csv，bw = 1
+</p>
+<p align="center">
+  <img src="../image/kde-application/bw4.png" width="600"/>
+  </br>图3.4：数据集：ec2_cpu_utilization_fe7f93.csv，bw = 2
+</p>
+
