@@ -13,14 +13,23 @@
 这里包括三组实验，分别是: 1. 有效性分析；2. 参数影响评估；3. 泛化性测试。
 
 * 有效性分析
-  * 这里采用数据集（xxxxxx），该数据集包括两个异常点，分布情况如下图所示；
+  * 这里采用数据集（ec2_cpu_utilization_24ae8d.csv），该数据集包括两个异常点，分布情况如下图所示；
   * 采用高斯核函数，带宽选择0.15；
   * 如下图所示，可以看到两个异常点明显突出，说明算法能够侦测到指标异常。
  
+
+  
+
 <p align="center">
   <img src="../image/kde-application/Ori.png" width="600"/>
-  <img src="../image/kde-application/bw_0.15.png" width="600"/>
+  </br>图1.1：原始数据集
 </p>
+<p align="center">
+  <img src="../image/kde-application/bw_0.15.png" width="600"/>
+  </br>图1.2：bw = 0.15
+</p>
+
+
 
 * 参数影响评估
   * 延用上个实验的数据集；
@@ -29,10 +38,30 @@
 
 <p align="center">
   <img src="../image/kde-application/bw_0.15.png" width="600"/>
-  <img src="../image/kde-application/bw_0.2.png" width="600"/>
-  <img src="../image/kde-application/bw_1.png" width="600"/>
-  <img src="../image/kde-application/bw_10.png" width="600"/>
+  </br>图2.1：bw = 0.15
 </p>
+<p align="center">
+  <img src="../image/kde-application/bw_0.5.png" width="600"/>
+  </br>图2.2：bw = 0.5
+</p>
+<p align="center">
+  <img src="../image/kde-application/bw_1.png" width="600"/>
+  </br>图2.3：bw = 1
+</p>
+<p align="center">
+  <img src="../image/kde-application/bw_2.png" width="600"/>
+  </br>图2.4：bw = 2
+</p>
+<p align="center">
+  <img src="../image/kde-application/bw_5.png" width="600"/>
+  </br>图2.5：bw = 5
+</p>
+<p align="center">
+  <img src="../image/kde-application/bw_10.png" width="600"/>
+  </br>图2.6：bw = 10
+</p>
+
+
 
 <!-- 可以看出，在这个数据集中，当KDE曲线越陡峭时，也就是相对来说不同的数据集适合的带宽也不相同。
  -->
@@ -42,9 +71,10 @@
   * 不同数据集的KDE带宽参数不同；
   * 如下图所示，可以看到：KDE能够侦测到不同节点上的指标异常。
 
-<p align="center">
+<!-- <p align="center">
   <img src="../image/kde-application/Ori2.png" width="600"/>
   <img src="../image/kde-application/bw2_1.png" width="600"/>
   <img src="../image/kde-application/Ori3.png" width="600"/>
   <img src="../image/kde-application/bw3_1.png" width="600"/>
 </p>
+ -->
