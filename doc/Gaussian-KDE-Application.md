@@ -38,7 +38,7 @@
 </p>
 <p align="center">
   <img src="../image/kde-application/exp_bw0.1.png" width="600"/>
-  </br>图1.2：bw = 0.05
+  </br>图1.3：bw = 0.05
 </p>
 
 
