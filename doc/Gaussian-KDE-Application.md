@@ -33,11 +33,11 @@
   </br>图1.1：原始数据集
 </p>
 <p align="center">
-  <img src="../image/kde-application/log_bw_0.1.png" width="600"/>
+  <img src="../image/kde-application/log_bw0.1.png" width="600"/>
   </br>图1.2：bw = 0.05
 </p>
 <p align="center">
-  <img src="../image/kde-application/exp_bw_0.1.png" width="600"/>
+  <img src="../image/kde-application/exp_bw0.1.png" width="600"/>
   </br>图1.2：bw = 0.05
 </p>
 
