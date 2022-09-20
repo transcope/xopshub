@@ -8,7 +8,7 @@ $$ \begin{aligned}
      \hat{f_h}(x) = \frac{1}{n} \sum_{i=1}^{n} K_{h}\left(x-x_{i}\right)=\frac{1}{n h} \sum_{i=1}^{n} K\left(\frac{x-x_{i}}{h}\right) 
    \end{aligned} $$
 
-其中，主要参数包括: $K(.)$ 表示核函数（这里主要采用高斯核函数），$h>0$ 表示带宽，即平滑参数。
+其中，主要参数包括: $K(.)$ 表示核函数（这里主要采用高斯核函数）， $h>0$ 表示带宽，即平滑参数。
 
 ## 数据
 测试使用AWS监控指标数据集，如下表所示。具体参见 <a href="../data/README.md">数据说明.</a>
