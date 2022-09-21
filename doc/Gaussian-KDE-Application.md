@@ -42,13 +42,13 @@ $$ \begin{aligned}
 
 ### 参数影响分析
 * 带宽会影响模型输出（曲线）的平滑程度。具体地，
-  * 当带宽越大，容易造成过平滑（oversmoothing）；
-  * 当带宽越小，容易造成欠平滑（undersmoothing）。
+  * 当带宽越大，容易造成过平滑（oversmoothing）
+  * 当带宽越小，容易造成欠平滑（undersmoothing）
 
 
 <p align="center">
   <img src="../image/kde-application/kde_smoothing.png" width="600"/>
-  </br>图1-3：右图过平滑（曲线只有一个波峰），左图欠平滑（曲线的波峰过多），中间的图是需要找的合适带宽的模型结果。</p>
+  </br>图1-3：左图过平滑（曲线只有一个波峰），右图欠平滑（曲线的波峰过多），中间的图是需要找的合适带宽的模型结果。</p>
 
 
 * 这里主要评估带宽（bandwidth）对模型结果的影响。
