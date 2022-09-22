@@ -115,6 +115,13 @@ $$ \begin{aligned}
   </br>图2-2：概率密度log图
 </p>
 
+在相同的时间窗内，橘黄色的标记点在log的空间内的差异性（左图）要远大于在线性空间（右图）。
+<p align="center">
+  <img src="../image/kde-application/result_compare.png" width="600"/>
+  </br>图2-3：对比图
+</p>
+
+
 ### 模型参数优化
 
 * 单个超参数且数值范围有限的情况下，这里采用GridSearchCV进行参数寻优。
