@@ -53,25 +53,30 @@ $$ \begin{aligned}
 
 * 这里主要评估带宽（bandwidth）对模型结果的影响。
   * 延用数据集24ae8d；
-  * 带宽分别采用0.05、0.5、1、2；
+  * 带宽分别采用0.05、0.5、1、2、10；
   * 结果如下所示，当带宽小的时候，模型能够侦测出当前数据集的异常点。带宽越大，异常点对应的模型输出不明显。
 
 <p align="center">
-  <img src="../image/kde-application/bw_0.15.png" width="600"/>
-  </br>图3.1：bw = 0.15 （图改）
+  <img src="../image/kde-application/bw_0.05.png" width="600"/>
+  </br>图3.1：bw = 0.05，此时的异常点最为显著 
 </p>
 <p align="center">
   <img src="../image/kde-application/bw_0.5.png" width="600"/>
-  </br>图3.2：bw = 0.5  （图改）
+  </br>图3.2：bw = 0.5  
 </p>
 <p align="center">
   <img src="../image/kde-application/bw_1.png" width="600"/>
-  </br>图3.3：bw = 1 （图改）
+  </br>图3.3：bw = 1 
 </p>
 <p align="center">
   <img src="../image/kde-application/bw_2.png" width="600"/>
-  </br>图3.4：bw = 2 （图改）
+  </br>图3.4：bw = 2 
 </p>
+<p align="center">
+  <img src="../image/kde-application/bw_10.png" width="600"/>
+  </br>图3.4：bw = 10 
+</p>
+
 
 
 <!-- 可以看出，在这个数据集中，，也就是相对来说不同的数据集适合的带宽也不相同。
