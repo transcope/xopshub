@@ -140,7 +140,7 @@ kde_grid.fit(data)
 best_kde = kde_grid.best_estimator_
 ```
 
-* 模型优化的默认指标是最大化对数似然，即  $\sum log\hat{p}(x_{i})$
+* 模型优化的默认指标是最大化对数似然，即  $\sum log\hat{f}(x_{i})$
 
 ## 算法
 * [The importance of kernel density estimation bandwidth]（https://aakinshin.net/posts/kde-bw/ ）
