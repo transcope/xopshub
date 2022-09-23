@@ -20,8 +20,9 @@ PUAD是一种适用于大量单维时间序列的半监督异常检测方法，�
 
 ### 其它
 
-* 以统计分析为主的运维解决方案，可以参见[基于概率的方法](https://github.com/transcope/xopshub/blob/main/doc/probability-distribution-based-solution.md)。
-
+* 以统计分析为主的运维解决方案，可以参见
+  * [基于概率的方法](./doc/probability-distribution-based-solution.md)
+  * [核密度估计算法](./doc/Gaussian-KDE-Application.md)
 
 ## 数据集
 * KPI异常检测数据集
