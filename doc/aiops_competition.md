@@ -14,7 +14,7 @@
 * KDE算法  
 此方案，使用KDE算法进行异常检验，具体参见 <a href="../data/Gaussian-KDE-Application.md">核密度估计算法的探索和实践</a>。
 
-* K-sigma算法 
+* K-sigma算法  
 K-sigma算法也是异常检测的一种。
 
 
