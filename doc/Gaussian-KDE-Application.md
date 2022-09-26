@@ -88,20 +88,20 @@ $$ \begin{aligned}
 * 结果如下图所示，KDE能够预测到大部分异常点，说明KDE算法对分析指标异常有效。
  
 <p align="center">
-  <img src="../image/kde-application/bw1.png" width="600"/>
-  </br>图4.1：数据集ac20cd，bw = 0.15 （图改）
+  <img src="../image/kde-application/ac20.png" width="600"/>
+  </br>图4.1：数据集ac20cd，异常点有较好的可分性。
 </p>
 <p align="center">
-  <img src="../image/kde-application/bw2.png" width="600"/>
-  </br>图4.2：数据集5f5533，bw = 0.5 （图改）
+  <img src="../image/kde-application/5f55.png" width="600"/>
+  </br>图4.2：数据集5f5533，异常点有较好的可分性，第二个异常点可能会存在误报的情况。
 </p>
 <p align="center">
-  <img src="../image/kde-application/bw3.png" width="600"/>
-  </br>图4.3：数据集825cc2，bw = 1 （图改）
+  <img src="../image/kde-application/825c.png" width="600"/>
+  </br>图4.3：数据集825cc2，异常点有较好的可分性。
 </p>
 <p align="center">
-  <img src="../image/kde-application/bw4.png" width="600"/>
-  </br>图4.4：数据集fe7f93，bw = 2 （图改）
+  <img src="../image/kde-application/fe7f.png" width="600"/>
+  </br>图4.4：数据集fe7f93，异常点的可分性较差，可以看见图像毛刺较多。
 </p>
 
 
