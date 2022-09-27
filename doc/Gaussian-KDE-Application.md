@@ -36,7 +36,7 @@ $$ \begin{aligned}
   </br>图1-1：数据集的分布情况。
 </p>
 <p align="center">
-  <img src="../image/kde-application/log_bw0.1.png" width="600"/>
+  <img src="../image/kde-application/bw_best.png" width="600"/>
   </br>图1-2：KDE输出的分布结果。
 </p>
 
@@ -57,24 +57,24 @@ $$ \begin{aligned}
   * 结果如下所示，当带宽小的时候，模型能够侦测出当前数据集的异常点。带宽越大，异常点对应的模型输出不明显。
 
 <p align="center">
+  <img src="../image/kde-application/bw_0.01.png" width="600"/>
+  </br>图3.1：bw = 0.01，虽然能够区分异常点，但周围毛刺较多 
+</p>
+<p align="center">
   <img src="../image/kde-application/bw_0.05.png" width="600"/>
-  </br>图3.1：bw = 0.05，此时的异常点最为显著 
+  </br>图3.2：bw = 0.05，此时的异常点最为显著  
+</p>
+<p align="center">
+  <img src="../image/kde-application/bw_0.1.png" width="600"/>
+  </br>图3.3：bw = 0.1 
 </p>
 <p align="center">
   <img src="../image/kde-application/bw_0.5.png" width="600"/>
-  </br>图3.2：bw = 0.5  
+  </br>图3.4：bw = 0.5，异常点开始不显著
 </p>
 <p align="center">
   <img src="../image/kde-application/bw_1.png" width="600"/>
-  </br>图3.3：bw = 1 
-</p>
-<p align="center">
-  <img src="../image/kde-application/bw_2.png" width="600"/>
-  </br>图3.4：bw = 2 
-</p>
-<p align="center">
-  <img src="../image/kde-application/bw_10.png" width="600"/>
-  </br>图3.4：bw = 10 
+  </br>图3.4：bw = 1
 </p>
 
 
