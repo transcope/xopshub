@@ -177,6 +177,71 @@
 	<td>CPU_WAIT_IO</td>
 	<td>等待IO占CPU百分比</td>
     </tr>
+    <tr> 
+        <td rowspan="15">磁盘 </td>
+        <td>DISK_TOTAL_USED_PERCENT</td>	
+        <td>总磁盘使用率</td>	
+        <td rowspan="3">贝塔分布</td> 
+    </tr>
+    <tr> 
+	<td>FD_USED_PERCENT</td> 	
+	<td>整机的fd使用率</td>   
+    </tr>	
+    <tr> 
+        <td>DISK_TOTAL_INODE_USED_PERCENT</td> 	
+        <td>磁盘总inode使用率</td> 	
+    </tr>
+    <tr> 
+        <td>DISK_FS_ERROR</td> 	
+        <td>磁盘错误</td> 	
+        <td rowspan="2">泊松分布</td>  
+    </tr>
+    <tr> 
+	<td>FD_USED</td> 	
+	<td>整机已使用fd个数</td>  
+    </tr>	
+    <tr> 
+  	<td>DISK_PAGE_IN</td>  	
+    	<td>分页从磁盘重新回到内存</td>  	
+    	<td rowspan="10">高斯分布</td>   
+    </tr>
+    <tr> 
+   	<td>DISK_PAGE_OUT</td>	
+    	<td>分页写入磁盘</td>
+    </tr>
+    <tr> 
+    	<td>DISK_TOTAL_AVG_WAIT</td>	
+    	<td>整机的磁盘平均等待时间</td>
+    </tr>
+    <tr> 
+    	<td>DISK_TOTAL_IO_UTIL</td>	
+    	<td>整机的磁盘IO使用百分比</td>
+    </tr>
+    <tr> 
+    	<td>DISK_TOTAL_READ_KB</td>	
+    	<td>整机的磁盘的读速率</td>
+    </tr>
+    <tr> 
+    	<td>DISK_TOTAL_READ_REQ</td>	
+    	<td>整机的磁盘读取请求数</td> 
+    </tr>
+    <tr> 
+     	<td>DISK_TOTAL_READ_AVG_WAIT</td>	
+    	<td>整机的磁盘读操作平均等待时间</td>
+    </tr>
+    <tr> 
+    	<td>DISK_TOTAL_WRITE_KB</td>	
+    	<td>整机的磁盘写速率</td>
+    </tr>
+    <tr> 
+    	<td>DISK_TOTAL_WRITE_REQ</td>	
+    	<td>整机的磁盘写入请求数</td>
+    </tr>
+    <tr>  
+    	<td>DISK_TOTAL_WRITE_AVG_WAIT</td>	
+    	<td>磁盘总的写操作平均等待时间</td>
+    </tr>
+	
 </table>
 
 
