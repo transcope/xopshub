@@ -241,7 +241,111 @@
     	<td>DISK_TOTAL_WRITE_AVG_WAIT</td>	
     	<td>磁盘总的写操作平均等待时间</td>
     </tr>
-	
+    <tr> 
+	<td rowspan="6">内存 </td>
+    	<td>MEM_USED_PERCENT</td>	
+    	<td>内存使用率</td>	
+    	<td rowspan="2">贝塔分布</td> 
+    </tr>
+    <tr> 
+    	<td>MEM_USED_ADD_SHMEM_PERCENT</td> 	
+    	<td>共享内存使用率</td>   
+    </tr>	
+    <tr> 
+    	<td>MEM_BUFFERS</td> 	
+    	<td>缓冲占用的内存容量</td>
+    	<td rowspan="3">泊松分布</td>  	
+    </tr>
+    <tr> 
+    	<td>MEM_CACHED</td> 	
+    	<td>缓存占用的内存容量</td> 	  
+    </tr>
+    <tr> 
+    	<td>MEM_USED</td> 	
+    	<td>系统已使用内存量</td> 	  
+    </tr>
+    <tr> 
+    	<td>MEM_USED_ADD_SHMEM</td> 	
+    	<td>系统已使用共享内存量</td> 	   
+    </tr>
+    <tr> 
+    	<td rowspan="13">网络</td>	
+    	<td>NET_MAX_NIC_INOUT_PERCENT</td>	
+    	<td>网卡入口/出口流量最大使用率</td>	
+    	<td>贝塔分布</td>
+    </tr>
+    <tr> 
+    	<td>NET_TCP_IN_ERRS</td>	
+    	<td>网络流入错误数</td>	
+    	<td rowspan="4">泊松分布</td>
+    </tr>
+    <tr> 
+    	<td>NET_TCP_RETRANS</td>	
+    	<td>tcp重传数</td>
+    </tr>
+    <tr> 
+    	<td>NET_TCP_LOSS</td>	
+    	<td>tcp丢包而进行恢复的次数</td>	
+    </tr>
+    <tr> 
+    	<td>NET_UP_NIC_NUMBER</td>	
+    	<td>网络向上接口数</td>	
+    </tr>
+    <tr> 
+    	<td>NET_TCP_ACTIVE_OPENS</td>	
+    	<td>tcp主动打开（连接）数</td>	
+    	<td rowspan="8">高斯分布</td>
+    </tr>
+    <tr> 
+   	<td>NET_TCP_CURR_ESTAB</td>	
+    	<td>当前已建立tcp连接数量</td>
+    </tr>
+    <tr> 
+    	<td>NET_TCP_IN_SEGS</td> 	
+    	<td>tcp协议层收到的数据包数</td>
+    </tr>
+    <tr> 
+    	<td>NET_TCP_OUT_SEGS</td>	
+    	<td>tcp协议层发出的数据包数</td>
+    </tr>
+    <tr> 
+    	<td>NET_TCP_TIME_WAIT</td>	
+    	<td>处于time_wait状态的tcp连接数</td>
+    </tr>
+    <tr> 
+    	<td>NET_TOTAL_IN_BITPS</td>	
+    	<td>网络流入速度</td>
+    </tr>
+    <tr> 
+    	<td>NET_TOTAL_OUT_BITPS</td>	
+    	<td>网络流出速度</td>
+    </tr>
+    <tr> 
+    	<td>NET_TOTAL_SOCKETS_USED</td> 	
+    	<td>已使用的所有协议套接字总量</td>
+    </tr>
+    <tr> 
+    	<td rowspan="5">OS内核 </td>
+    	<td>SYS_OOM</td>	
+    	<td>衡量系统超出内存的频率</td>	
+    	<td rowspan="5">泊松分布</td> 
+    </tr>
+    <tr> 
+    	<td>SYS_PAGING_PROCS</td> 	
+    	<td>系统分页进程数/td>   
+    </tr>	
+    <tr> 
+    	<td>SYS_RUNNING_PROCS</td> 	
+    	<td>系统运行中进程数</td>   
+    </tr>
+    <tr> 
+    	<td>SYS_STOPPED_PROCS</td> 	
+    	<td>系统暂停状态进程数</td>   
+    </tr>	
+    <tr> 
+    	<td>SYS_ZOMBIE_PROCS</td> 	
+    	<td>系统僵尸进程数</td>   
+    </tr>				
 </table>
 
 
