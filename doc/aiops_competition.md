@@ -13,6 +13,17 @@
   </br>图：数据预处理示例
 </p>
 
+案例：
+<p align="center">
+  <img src="../image/aiops_competition_pic/ab5.png" width="600"/>
+  </br>图：故障发生前有异常
+</p>
+
+<p align="center">
+  <img src="../image/aiops_competition_pic/ab7.png" width="600"/>
+  </br>图：故障发生前有异常，因此需要抛弃
+</p>
+
 2. 将故障发生前，数据预处理完的无故障样本做为训练集数据；将故障发生前一段时间和故障发生后一段时间的样本作为测试集数据。
 
 
@@ -38,10 +49,8 @@ K-sigma算法也是异常检测的一种。
 <!-- 用此方法能够区分出故障的发生，导致部分指标产生异常。 -->
 用此方法能够区分出故障的发生，55个指标中能够找出34个异常指标。但有些指标能够看出明显的差异，有些肉眼无法判断是否有用，有些完全没用。
 
-<p align="center">
-  <img src="../image/aiops_competition_pic/ab5.png" width="600"/>
-  </br>图：故障发生前有异常
-</p>
+
+
 
 <p align="center">
   <img src="../image/aiops_competition_pic/ab1.png" width="600"/>
