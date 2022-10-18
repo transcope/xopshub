@@ -57,6 +57,7 @@ K-sigma算法也是异常检测的一种。
   <img src="../image/aiops_competition_pic/ab2.png" width="600"/>
   </br>图：该指标完全没用
 </p>
+
 ### 时间窗分析
 可以看出，指标受故障影响产生异常的时间不一样
 
