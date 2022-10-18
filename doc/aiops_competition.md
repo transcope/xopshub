@@ -71,3 +71,7 @@ K-sigma算法也是异常检测的一种。
 可以看出，指标受故障影响产生异常的时间不一样
 
 ### 样本不对齐
+
+# 参考
+1. 浦发方案：<a href="../external/浦智运维战队.pdf">[浦智运维战队]</a>
+2. 农行方案：<a href="../external/ABC_AIOPS.pdf">[ABC_AIOPS]</a>
