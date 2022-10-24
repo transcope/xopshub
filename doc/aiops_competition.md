@@ -22,7 +22,7 @@
 由于只有故障发生时间点，没有时间范围，因此数据采集需要设置间隔时间（故障发生前后），确保样本污染。
 
 <p align="center">
-  <img src="../image/aiops_competition_pic/ab6.png" width="600"/>
+  <img src="../image/aiops_competition_pic/case.png" width="600"/>
   </br>图：数据采集示例
 </p>
 
@@ -36,24 +36,24 @@
 根据已知故障时间点附近，可以看到
 
 <p align="center">
-  <img src="../image/aiops_competition_pic/ab5.png" width="600"/>
+  <img src="../image/aiops_competition_pic/ab_before.png" width="600"/>
   </br>图：故障时间点前，指标异常示例
 </p>
 
 <p align="center">
-  <img src="../image/aiops_competition_pic/ab7.png" width="600"/>
+  <img src="../image/aiops_competition_pic/ab_after.png" width="600"/>
   </br>图：故障时间点后，指标异常示例
 </p>
 
 给定故障发生时间段之后，可以看到
 
 <p align="center">
-  <img src="../image/aiops_competition_pic/ab5.png" width="600"/>
+  <img src="../image/aiops_competition_pic/abts_before.png" width="600"/>
   </br>图：故障发生前，指标异常示例
 </p>
 
 <p align="center">
-  <img src="../image/aiops_competition_pic/ab7.png" width="600"/>
+  <img src="../image/aiops_competition_pic/abts_after.png" width="600"/>
   </br>图：故障发生后，指标异常示例
 </p>
 
