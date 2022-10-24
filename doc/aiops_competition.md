@@ -2,9 +2,17 @@
 这里主要参考浦发团队在Aiops比赛中所使用的方案。
 
 ## 数据
-1. 数据量、数据描述
+这里使用的是国际AIOps挑战赛初赛数据集。本次实验的数据集为cloudbed1下的node节点的node-1。包括六列：时间戳（timestamp），CMDB对应的编号（cmdb_id），KPI对应的名称（kpi_name），KPI在该时刻对应的数值（value），CLOUD对应的编码（cloud），以及故障发生的日期（date）。数据集样例如下：
+| timestamp | cmdb_id | kpi_name | value | cloud | date |
+|  :----:  |  :----:  | :---- | :---- |   :----:   |  :----:  |
+| 1647705600 | node-1 | system.cpu.iowait	| 0.31 | cloudbed1 | 2022-03-20 |
+| 1647705600 | node-1 | system.net.packets_out.erro | 0.00 | cloudbed1 | 2022-03-20 |
+| ... | ... | ... | ... | ... | ... |
 
-本次实验的数据集为cloudbed1下的node节点的node-1。
+该数据集详细统计情况如下：
+| | KPI种类 | 数据集大小 | 时间天数 | 
+| :---- | :----: | :----: | :----: | 
+| 数据集 | 59 | 163872 | 2 | 
 
 ## 方案
 目的：故障时，指标是否存在异常。
