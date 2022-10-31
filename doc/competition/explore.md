@@ -23,7 +23,7 @@
   2. 预估。故障发生前一段时间的指标样本点，用于训练KDE模型，估计故障期间的指标样本点。
   3. 预警。采用K-Sigma方法，对KDE估计（训练和测试）进行判定，输出异常标识。
 <p align="center">
-  <img src=".../image/aiops_competition_pic/flow.png" width="200"/>
+  <img src="../../image/aiops_competition_pic/flow.png" width="200"/>
   </br>图：方案流程图
 </p>
 
@@ -31,7 +31,7 @@
 由于只有故障发生时间点，没有时间范围，因此数据采集需要设置间隔时间（故障发生前后），确保样本污染。
 
 <p align="center">
-  <img src=".../image/aiops_competition_pic/case.png" width="600"/>
+  <img src="../../image/aiops_competition_pic/case.png" width="600"/>
   </br>图：数据采集示例
 </p>
 
@@ -43,24 +43,24 @@
 
 案例：
 <p align="center">
-  <img src=".../image/aiops_competition_pic/ab_before.png" width="600"/>
+  <img src="../../image/aiops_competition_pic/ab_before.png" width="600"/>
   </br>图：故障时间点前，指标异常示例
 </p>
 
 <p align="center">
-  <img src=".../image/aiops_competition_pic/ab_after.png" width="600"/>
+  <img src="../../image/aiops_competition_pic/ab_after.png" width="600"/>
   </br>图：故障时间点后，指标异常示例
 </p>
 
 2. 将故障发生前，数据预处理完的无故障样本做为训练集数据；将故障发生前一段时间和故障发生后一段时间的样本作为测试集数据。
 
 <p align="center">
-  <img src=".../image/aiops_competition_pic/abts_before.png" width="600"/>
+  <img src="../../xopshub/image/aiops_competition_pic/abts_before.png" width="600"/>
   </br>图：故障发生前，指标异常示例
 </p>
 
 <p align="center">
-  <img src=".../image/aiops_competition_pic/abts_after.png" width="600"/>
+  <img src="../../image/aiops_competition_pic/abts_after.png" width="600"/>
   </br>图：故障发生后，指标异常示例
 </p>
 
@@ -75,23 +75,23 @@
 
 
 <p align="center">
-  <img src=".../image/aiops_competition_pic/ab1.png" width="600"/>
+  <img src="../../image/aiops_competition_pic/ab1.png" width="600"/>
   </br>图：该指标能够看出明显的差异
 </p>
 
 <p align="center">
-  <img src=".../image/aiops_competition_pic/ab3.png" width="600"/>
+  <img src="../../image/aiops_competition_pic/ab3.png" width="600"/>
   </br>图：该指标肉眼无法判断是否异常
 </p>
 
 <p align="center">
-  <img src=".../image/aiops_competition_pic/ab2.png" width="600"/>
+  <img src="../../image/aiops_competition_pic/ab2.png" width="600"/>
   </br>图：该指标完全没用
 </p>
 
 ## 算法说明
 * KDE算法：
-  此方案，使用KDE算法进行异常检验，具体参见 <a href=".../data/Gaussian-KDE-Application.md">核密度估计算法的探索和实践</a>。
+  此方案，使用KDE算法进行异常检验，具体参见 <a href="../../data/Gaussian-KDE-Application.md">核密度估计算法的探索和实践</a>。
 * K-Sigma算法：
   K-sigma算法也是异常检测的一种。
 
@@ -101,5 +101,5 @@
 实验参数过多：主要是数据采集使用的时间相关参数过多，实际情况是不同指标、不同故障是不一样的。
 
 # 参考
-1. 浦发方案：<a href="./external/浦智运维战队.pdf">[浦智运维战队]</a>
-2. 农行方案：<a href="./external/ABC_AIOPS.pdf">[ABC_AIOPS]</a>
+1. 浦发方案：<a href="../external/浦智运维战队.pdf">[浦智运维战队]</a>
+2. 农行方案：<a href="../external/ABC_AIOPS.pdf">[ABC_AIOPS]</a>
