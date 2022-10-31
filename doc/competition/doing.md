@@ -28,7 +28,7 @@
 该方案特征在于全流程集合学习，即在每一个环节采用多种方式进行处理、分析、打标、学习、以及结果融合。
 
 <p align="center">
-  <img src="../image/aiops_competition_pic/flow_v2.png" width="600"/>
+  <img src="../../image/aiops_competition_pic/flow_v2.png" width="600"/>
 </p>
 
 ## 预处理
